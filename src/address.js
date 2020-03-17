@@ -1,13 +1,13 @@
 import * as bip39 from 'bip39';
-import * as bip32 from 'bip32';
-import TronWeb from 'tronweb';
-import crypto from 'crypto';
+import * as bip32 from '@ont-community/hdkey-secp256r1';
+import {wallet} from '@cityofzion/neon-core';
+import randomBytes from 'randombytes';
 import assert from 'assert'
 
-export class TronAddress {
+export class NeoAddress {
 
     static generateMnemonic() {
-        return bip39.entropyToMnemonic(crypto.randomBytes(16));
+        return bip39.entropyToMnemonic(randomBytes(32));
     }
     constructor(mnemonic, index = 0) {
         assert(mnemonic,'Missing 1st argument mnemonic, run Address.generateMnemonic() to generate');
@@ -18,7 +18,7 @@ export class TronAddress {
     }
     _generateHdNode() {
         const seed = bip39.mnemonicToSeedSync(this.mnemonic);
-        this.node = bip32.fromSeed(seed);
+        this.node = bip32.fromMasterSeed(new Buffer(seed, 'hex'));
     }
     createAddress() {
       this.currentIndex++;
@@ -37,13 +37,13 @@ export class TronAddress {
     }
     getAddressInfo(index) {
         index = parseInt(index);
-        const child = this.node.derivePath(`m/44'/195'/${ index }'/0/0`);
+        const child = this.node.derive(`m/44'/888'/${ index }'/0/0`);
         const privateKey = child.privateKey.toString('hex');
-        const address = TronWeb.address.fromPrivateKey(privateKey);
+        const acc = new wallet.Account(privateKey);
         return {
             index,
-            privateKey,
-            address
+            privateKey: acc.WIF,
+            address: acc.address
         };
     }
 }

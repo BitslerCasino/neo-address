@@ -1,10 +1,11 @@
 {
-  "name": "@bitsler/tron-address",
+  "name": "@bitsler/neo-address",
   "version": "1.0.0",
-  "description": "generate hd address and mnemonic that is compatible with tronlink",
+  "description": "generate hd address and mnemonic that is compatible with neo-cli",
   "main": "dist/main.js",
-  "module": "dist/main-esm.js",
-  "repository": "git@github.com:BitslerCasino/tron-address.git",
+  "module": "dist/main.esm.js",
+  "browser": "dist/main.umd.js",
+  "repository": "git@github.com:BitslerCasino/neo-address.git",
   "author": "unibtc <unibtc@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -13,11 +14,16 @@
     "publish:npm": "yarn publish --access public"
   },
   "dependencies": {
-    "bip32": "^2.0.4",
+    "@cityofzion/neon-core": "^4.7.2",
+    "@ont-community/hdkey-secp256r1": "^1.0.1",
+    "assert": "^2.0.0",
     "bip39": "^3.0.2",
-    "tronweb": "^2.7.1"
+    "randombytes": "^2.1.0"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "devDependencies": {
+    "rollup": "^2.0.6"
+  }
 }

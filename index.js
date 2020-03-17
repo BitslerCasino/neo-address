@@ -1,2 +1,2 @@
-import {TronAddress} from './src/address';
-export default TronAddress;
+import {NeoAddress} from './src/address';
+export default NeoAddress;
