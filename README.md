@@ -5,12 +5,12 @@ Generate hd address and mnemonic that is compatible with tronlink wallet
 - `yarn add @bitsler/neo-address` or `npm install @bitsler/neo-address`
 
 ## Usage
-- Generate 12-word mnemonic. (WARNING: This wallet only stores the seed in-memory, restarting the application will also remove it from memory, make sure to backup!)
+- Generate 24-word mnemonic. (WARNING: This wallet only stores the seed in-memory, restarting the application will also remove it from memory, make sure to backup!)
 ```
 import Address from '@bitsler/neo-address';
 const mnemonic = Address.generateMnemonic();
 console.log(mnemonic);
-// will show you the 12-word mnemonic seed
+// will show you the 24-word mnemonic seed
 ```
 
 - Initiating class(Mnemonic seed is required)

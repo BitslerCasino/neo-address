@@ -1,6 +1,6 @@
 {
   "name": "@bitsler/neo-address",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "generate hd address and mnemonic that is compatible with neo-cli",
   "main": "dist/main.js",
   "module": "dist/main.esm.js",
@@ -14,8 +14,8 @@
     "publish:npm": "yarn publish --access public"
   },
   "dependencies": {
+    "@bitsler/hdkey-secp256r1": "^1.0.0",
     "@cityofzion/neon-core": "^4.7.2",
-    "@ont-community/hdkey-secp256r1": "^1.0.1",
     "assert": "^2.0.0",
     "bip39": "^3.0.2",
     "randombytes": "^2.1.0"
@@ -24,6 +24,7 @@
     "dist"
   ],
   "devDependencies": {
-    "rollup": "^2.0.6"
+    "esm": "^3.2.25",
+    "rollup": "^2.1.0"
   }
 }

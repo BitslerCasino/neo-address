@@ -1,5 +1,5 @@
 import * as bip39 from 'bip39';
-import * as bip32 from '@ont-community/hdkey-secp256r1';
+import * as bip32 from '@bitsler/hdkey-secp256r1';
 import {wallet} from '@cityofzion/neon-core';
 import randomBytes from 'randombytes';
 import assert from 'assert'
